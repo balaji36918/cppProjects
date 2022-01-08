@@ -1,1 +1,250 @@
+//example functions in udemy c++ developer course
+
+#include <iostream>
+using namespace std;
+
+void printMyName() {
+    cout << "Balaji Venkatasubramanian\n" << endl;
+}
+
+int main()
+{
+    printMyName() ;
+}
+
+//Pass by value - above example
+//Pass by ref - more control over the function
+//Passing schemes
+#include <iostream>
+using namespace std;
+
+int myInputNum;
+void threeTimesN(int input, int& output);
+    
+int main()
+{
+    int myInputNum;
+    
+    threeTimesN(100, myInputNum);
+    cout << "After threeTimesN, myInputNum is "<< myInputNum << endl ;
+    
+    return 0;
+}
+
+void threeTimesN(int input, int& output)
+{
+    output = input * 3;
+    
+}
+
+//Function return types and parameters
+//returntypeParameterFun
+//if the function name goes like, int addThese(int num1, int num2);
+//int at the start refers to the return type which here is int and the int num1 and int num2 refers to the parameters of the function
+//basicsback: void function cant return anything as it is voidf
+//square function
+#include <iostream>
+using namespace std;
+
+int square(int a );
+    
+int main()
+{
+    //uare(18);
+    cout << square(18) ;
+    return 0;
+}
+
+int square(int a)
+{
+    int output;
+    return output = a*a ;
+}
+
+//Variable scope also identifiers and Lifetime
+//var types - Global, Local & Static local 
+//Scope
+// a var declared inside the void fn cant be accessed even by the main function - interesting
+// similarly a var declared inside the int function cant be accessed by the void function - no surprises there
+//diff btw SCOPE and LIFETIME : The scope of a variable is the part of the program within which the variable can be used.....
+//The lifetime of a variable or function is the time duration for which memory is allocated to store it,
+//and when that memory is released.
+//Lifetime of GLOBAL VARIABLE:new memory stored and then further processed.3,14, 4,14 
+//LT of LOCAL VARIABLE: memory destroyed after one execution 101,101
+//to make a local variable lifetime longer while still protecting from other functions,,,
+//use STATIC LOCAL VARIABLE
+
+#include <iostream>
+using namespace std;
+
+int counter = 0;
+
+void modifyGlobal() ;
+int main() {
+    
+    cout << "Before loop, counter val is "<< counter << endl;
+    for(int i=0; i<100; i++) {
+        modifyGlobal();
+        
+    }
+    cout << "After loop, counter val is "<<counter << endl;
+}
+
+void modifyGlobal() {
+    counter++ ;
+}
+
+//Function OVERLOADING
+//PROCCESS OF CREATING MULTIPLE FUNCTIONS WITH THE SAME NAME BUT DIFFERENT SIGNATURES
+//Function SIGNATURE consists of the name and parameter list of a function
+//g++  7.4.0
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+int getResult(int num1, int num2, int num3);
+string getResult(string str1, string str2, string str3);
+
+int main() 
+{
+    int resultNum = getResult(30, 30, 30);
+    string nameResult = getResult("Balaji", "is", "great!");
+    
+    cout << "result num is "<< resultNum << endl;
+    cout << "name result is "<< nameResult << endl;
+    
+    return 0;
+}
+
+int getResult(int num1, int num2, int num3) {
+    return num1 * num2 * num3 ;
+}
+
+string getResult(string str1, string str2, string str3)
+{
+    return str1 + " " +str2 + " " +  str3;
+}
+
+
+//intro to <cmath> library
+//achtung : ceil rounds up any given number to the nearest integer above it
+//cplusplus.com - u can find help regarding the library and its various functions that can be used
+//EXCELLENT!
+//logarithms reverser exponentiation. for examplle of log2(512) gives how many times 2 should be 
+//multiplied by itselves to get that number 512.
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+    int result = log2(512) ;
+    cout << result << endl;
+    return 0;
+}
+
+//recursion function
+//When a function calls itself, it is called recursion.
+//function for calculating factorial of a given number
+//g++  7.4.0
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+int factorial(int n);
+
+int main() {
+        int finalvalue = factorial(6) ;
+        cout << " The factorial of 6 is " << finalvalue ;
+        return 0;
+}
+
+int factorial(int n) {
+    int val=1;
+    for (int i = n; i>=1; i--)
+    {
+        val = val * i;
+    }
+    return val;
+}
+//return the product of 3 numbers
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int multiply(int num1,int num2, int num3);
+
+int main() {
+    int product = multiply(9, 9, 9);
+    cout << "The product of 3 numbers is " << product;
+    return 0;
+}
+
+int multiply(int num1,int num2, int num3)
+{
+    return num1 * num2 * num3;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
