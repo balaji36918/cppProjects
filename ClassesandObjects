@@ -1,0 +1,75 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+class House {
+    public:
+    //setters cant have constants as it cant be changed
+        void setNumStories(int numStories)
+        {
+            //this -> since parameter name and datamember are same, this-> avoids overshadowing 
+            this ->numStories = numStories;
+        }
+        
+        void setNumWindows(int numWindows)
+        {
+            this ->numWindows = numWindows;
+        }
+        
+        void setColor(string color) {
+            this ->color = color;
+            
+        }
+        
+        //using keyword const is a considered as a good sw development practice 
+        //the code will still run even after the removal of the term const
+        //const is versatile - one s constant second s the function has access but the value cant be changed
+        int getNumStories() const
+        {
+            return numStories;
+        }
+        
+        int getNumWindows() const 
+        {
+            return numWindows ;
+        
+        }
+        
+        string getColor() const
+        {
+            return color;
+        }
+        
+    private:
+        int numStories;
+        int numWindows;
+        string color;
+    
+}; //end of the class house
+
+void printHouseData(House house);
+
+int main() {
+    House myHouse;
+    House yourHouse;
+  
+    myHouse.setNumStories(2);
+    myHouse.setNumWindows(6);
+    myHouse.setColor("red");
+  
+    yourHouse.setNumStories(3);
+    yourHouse.setNumWindows(10);
+    yourHouse.setColor("blue");
+
+    printHouseData(myHouse);
+    printHouseData(yourHouse);
+    
+    return 0;
+}
+
+void printHouseData(House house){
+    
+    cout << "The house is " << house.getColor() << " and has "
+        << house.getNumStories() << " stories and "
+        << house.getNumWindows() << "windows." << endl;
+}
