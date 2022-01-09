@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int TensorScore = 3;	
+	cout << "Value of TensorScore is " << TensorScore << endl;
+	int* somePtr = &TensorScore ;
+	*somePtr = 18;
+	cout << "Address of TensorScore is " << somePtr << endl;
+	cout << "Value of TensorScore after changing the value of ptr is " << TensorScore << endl;	
+	cout << endl << endl;
+	double myDouble = 3.14;
+	double* doublePtr = &myDouble;
+	cout << "The value of doublePtr is " << doublePtr << endl;
+	cout << "The doublePtr points to " << *doublePtr << endl;
+	return 0;
+}
